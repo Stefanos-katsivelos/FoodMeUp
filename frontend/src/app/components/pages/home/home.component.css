@@ -1,8 +1,70 @@
-.favorite fa-icon {
-  color: grey;
+ul {
+  width: 60%;
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  list-style-type: none;
+  background-color: lightgrey;
+  border: 2px solid #ccc; 
+  border-radius: 10px; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
 }
 
-.stars fa-icon  {
-  color: gold;
-  font-size: 24px;
+li {
+  flex: 1 1 21%;
+  display: flex;
+  justify-content: center;
 }
+
+li a img {
+  width: 100%;
+  height: 45%; 
+  object-fit: cover; 
+  border-radius: 1rem; 
+}
+
+li a {
+  height: 15rem;
+  width: 11rem;
+  border: 1px solid whitesmoke;
+  border-radius: 1rem;
+  margin: 1rem;
+  display: flex;
+  flex-direction: column;
+  /* overflow: hidden; */
+  color: seagreen;
+}
+
+li a:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+
+.content {
+  position: relative;
+  width: 90%;
+  margin-top: 0.2rem;
+  font-size: 0.8rem;
+}
+
+.content div {
+  margin-top: 0.2rem;
+}
+
+.favorite {
+  position: absolute;
+  top: 0.1rem;
+  right: 0.6rem;
+  font-size: 1.1rem;
+}
+
+.stars {
+ font-size: 0.8rem;
+ text-align: center;
+ width: 70%;
+ padding-top: 1rem ;
+}
+

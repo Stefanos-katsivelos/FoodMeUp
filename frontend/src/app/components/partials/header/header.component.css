@@ -5,7 +5,8 @@ header {
   padding: 0;
   margin: 0;
   border-bottom: 2px solid #b1179f;
-  
+  border-radius: 10px; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 a {
@@ -16,13 +17,10 @@ a:hover {
   background-color: #b1179f;
   color: white;
   cursor:pointer;
-  /* border-top-left-radius: 20%;
-  border-top-right-radius: 20%; */
+ 
 }
 
 .container {
-  margin-left: auto;
-  margin-right: auto;
   display: flex;
   justify-content: space-between;
 }

@@ -10,7 +10,7 @@ export const sample_foods: Food[] = [
     stars: 4.5,
     imageUrl: 'assets/pizza-margarita.jpg',
     origins: ['Italy'],
-    cookTime: '20 minutes'
+    cookTime: '20 - 25 '
   },
   {
     id: '2',
@@ -21,7 +21,7 @@ export const sample_foods: Food[] = [
     stars: 4.8,
     imageUrl: 'assets/sushi.jpg',
     origins: ['Japan'],
-    cookTime: '30 minutes'
+    cookTime: '30 - 40'
   },
   {
     id: '3',
@@ -32,7 +32,7 @@ export const sample_foods: Food[] = [
     stars: 4.7,
     imageUrl: 'assets/taco.jpg',
     origins: ['Mexico'],
-    cookTime: '15 minutes'
+    cookTime: '15 - 20 '
   },
   {
     id: '4',
@@ -43,7 +43,7 @@ export const sample_foods: Food[] = [
     stars: 4.6,
     imageUrl: 'assets/padThai.jpg',
     origins: ['Thailand'],
-    cookTime: '25 minutes'
+    cookTime: '25 - 30 '
   },
   {
     id: '5',
@@ -54,7 +54,7 @@ export const sample_foods: Food[] = [
     stars: 4.9,
     imageUrl: 'assets/butterChicken.jpg',
     origins: ['India'],
-    cookTime: '35 minutes'
+    cookTime: '35 - 40 '
   },
   {
     id: '6',
@@ -65,7 +65,7 @@ export const sample_foods: Food[] = [
     stars: 4.3,
     imageUrl: 'assets/welightonBeef.jpg',
     origins: ['United Kingdom'],
-    cookTime: '60 minutes'
+    cookTime: '60 - 65 '
   },
   {
     id: '7',
@@ -76,7 +76,7 @@ export const sample_foods: Food[] = [
     stars: 4.4,
     imageUrl: 'assets/falafel.jpg',
     origins: ['Middle East'],
-    cookTime: '10 minutes'
+    cookTime: '10 - 15 '
   },
   {
     id: '8',
@@ -87,7 +87,7 @@ export const sample_foods: Food[] = [
     stars: 4.7,
     imageUrl: 'assets/duck.jpg',
     origins: ['China'],
-    cookTime: '90 minutes'
+    cookTime: '90 '
   },
   {
     id: '9',
@@ -98,7 +98,7 @@ export const sample_foods: Food[] = [
     stars: 4.5,
     imageUrl: 'assets/carbonara.jpg',
     origins: ['Italy'],
-    cookTime: '20 minutes'
+    cookTime: '20 - 25 '
   },
   {
     id: '10',
@@ -109,6 +109,6 @@ export const sample_foods: Food[] = [
     stars: 4.2,
     imageUrl: 'assets/fish&potato.jpg',
     origins: ['United Kingdom'],
-    cookTime: '25 minutes'
+    cookTime: '25 - 30 '
   }
 ];

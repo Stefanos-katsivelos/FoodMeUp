@@ -2,21 +2,29 @@ import { Component } from '@angular/core';
 import { Food } from '../../../shared/models/food';
 import { FoodService } from '../../../services/food.service';
 import { RouterLink } from '@angular/router';
-import { faStar } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faHeart } from '@fortawesome/free-solid-svg-icons';
+import { HeartComponent } from '../../partials/heart/heart.component';
+import { StarRatingComponent } from '../../partials/star-rating/star-rating.component';
+import { CommonModule } from '@angular/common';
+import { faClock } from '@fortawesome/free-solid-svg-icons';
+
+
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [RouterLink, FontAwesomeModule ],
+  imports: [
+    RouterLink,
+    FontAwesomeModule,
+    HeartComponent,
+    StarRatingComponent,
+    CommonModule,
+  ],
   templateUrl: './home.component.html',
-  styleUrl: './home.component.css'
+  styleUrl: './home.component.css',
 })
 export class HomeComponent {
-  faStar = faStar;
-  faHeart = faHeart;
-
+  faClock = faClock;
 
   foods: Food[] = [];
   constructor(private foodService: FoodService) {

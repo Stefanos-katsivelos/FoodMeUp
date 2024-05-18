@@ -3,10 +3,8 @@
 
 * {
   box-sizing: border-box;
-}
-
-html {
-  font-size: 18px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 html,
@@ -15,6 +13,7 @@ button {
 }
 
 body {
+ 
   margin: 0;
 }
 

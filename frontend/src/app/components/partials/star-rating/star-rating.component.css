@@ -1,0 +1,13 @@
+.stars {
+  display: flex;
+}
+
+.stars fa-icon {
+  cursor: pointer;
+  color: grey;
+  margin-right: 4px;
+}
+
+.stars fa-icon.selected {
+  color: gold;
+}

@@ -1,1 +1,11 @@
-<p>star-rating works!</p>
+<div>
+  <div class="stars">
+    <fa-icon
+      [icon]="faStar"
+      *ngFor="let star of stars; let i = index"
+      [ngClass]="{ selected: i < rating }"
+      (click)="setRating(i + 1)"
+      (dblclick)="resetRating()"></fa-icon>
+  </div>
+  <span>Rating {{ rating }}</span>
+</div>

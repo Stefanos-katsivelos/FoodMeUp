@@ -1,0 +1,6 @@
+<div
+  class="favorite"
+  (click)="toggleFavorite()"
+  [ngClass]="{ not: !isFavorite }">
+  <fa-icon [icon]="faHeart"></fa-icon>
+</div>
