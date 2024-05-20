@@ -1,11 +1,22 @@
 <div>
   <div class="stars">
-    <fa-icon
-      [icon]="faStar"
-      *ngFor="let star of stars; let i = index"
-      [ngClass]="{ selected: i < rating }"
-      (click)="setRating(i + 1)"
-      (dblclick)="resetRating()"></fa-icon>
+    <ng-container *ngFor="let star of stars; let i = index">
+      <fa-icon
+        *ngIf="isFullStar(i)"
+        [icon]="faStar"
+        class="selected">
+      </fa-icon>
+      <fa-icon
+        *ngIf="isHalfStar(i)"
+        [icon]="faStarHalfAlt"
+        class="selected half-star">
+      </fa-icon>
+      <fa-icon
+        *ngIf="!isFullStar(i) && !isHalfStar(i)"
+        [icon]="faStar"
+        class="empty-star">
+      </fa-icon>
+    </ng-container>
   </div>
   <span>Rating {{ rating }}</span>
 </div>

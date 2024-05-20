@@ -1,15 +1,15 @@
 ul {
   width: 60%;
-  
   display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
   list-style-type: none;
-  background-color: lightgrey;
-  border: 2px solid #ccc; 
+  background-color: #f1f1f1;
+  border: 2px solid #f1f1f1; 
   border-radius: 10px; 
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  margin-top: 0; 
 }
 
 li {

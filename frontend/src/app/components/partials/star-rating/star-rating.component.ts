@@ -1,7 +1,8 @@
-import { Component, Input,  } from '@angular/core';
+import { Component, Input, OnInit,  } from '@angular/core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faStar } from '@fortawesome/free-solid-svg-icons';
+import { faStar, faStarHalfAlt } from '@fortawesome/free-solid-svg-icons';
 import { CommonModule } from '@angular/common';
+import { EFood } from '../../../shared/models/interfaces/food';
 
 @Component({
   selector: 'app-star-rating',
@@ -11,9 +12,11 @@ import { CommonModule } from '@angular/common';
   styleUrl: './star-rating.component.css',
 })
 export class StarRatingComponent {
+  @Input() rating: number = 0;
   faStar = faStar;
+  faStarHalfAlt = faStarHalfAlt;
   stars = [1, 2, 3, 4, 5,];
-  rating = 0;
+  
 
   setRating(rating: number) {
     this.rating = rating;
@@ -21,5 +24,14 @@ export class StarRatingComponent {
 
   resetRating() {
     this.rating = 0;
+  }
+
+  isFullStar(i: number): boolean {
+    return i + 1 <= this.rating
+  }
+
+  isHalfStar(i: number): boolean {
+    const currentStar = i + 1;
+    return this.rating >= currentStar - 0.5 && this.rating < currentStar;
   }
 }

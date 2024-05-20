@@ -2,12 +2,19 @@
   display: flex;
 }
 
-.stars fa-icon {
+fa-icon {
   cursor: pointer;
-  color: grey;
-  margin-right: 4px;
+  color: #f1f1f1;
 }
 
-.stars fa-icon.selected {
+fa-icon.selected {
   color: gold;
+}
+
+.empty-star {
+  color: #d3d1d1;
+}
+
+.half-star {
+  color: #d3d1d1;
 }
