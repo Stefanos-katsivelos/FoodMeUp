@@ -1,16 +1,51 @@
 <div class="container">
-  <img [src]="food.imageUrl" [alt]="food.name">
-
+  <img
+    [src]="food.imageUrl"
+    [alt]="food.name" />
 
   <div class="details">
     <div class="header">
       <span class="name">
-        {{food.name}}
+        {{ food.name }}
       </span>
-      <span class="favorite {{food.favorite? '': 'not'}}">
+      <span class="favorite {{ food.favorite ? '' : 'not' }}">
         <fa-icon [icon]="faHeart"></fa-icon>
       </span>
-      
     </div>
+
+   
+
+    <div class="tags">
+      <div *ngFor="let tag of food.tags;">
+        <a [routerLink]="'/tag/' + tag">{{ tag }}</a>
+      </div>
+    </div>
+
+    <div class="rating">
+      <app-star-rating [rating]="food.stars"></app-star-rating>
+    </div>
+
+    <div class="origins">
+      @for (origin of food.origins; track origin) {
+        <span>{{ food.origins }}</span>
+      }
+    </div>
+
+    <div class="cook-time">
+      <span>
+        Time to cook about
+        <strong>{{ food.cookTime }}</strong>
+        minutes
+      </span>
+    </div>
+
+
+    <div class="price">
+      <span>
+        {{ food.price | currency: "EUR" }}
+      </span>
+    </div>
+
+    <button>Add to Cart</button>
   </div>
 </div>
