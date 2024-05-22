@@ -1,0 +1,151 @@
+
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  margin: 1.5rem;
+  margin-top: 1rem;
+}
+
+ul {
+  display: flex;
+  flex-direction: column;
+  flex: 3 0;
+  justify-content: space-evenly;
+  list-style: none;
+  box-shadow: 0 4px 8px rgba(0,0,0.6,0.6);
+  margin: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0.7, 0.7);
+}
+
+ul li {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  background-color: rgb(233, 185, 166);
+  align-items: center;
+  flex-wrap: wrap;
+  box-shadow: 0 4px 8px rgba(0, 0, 0.7, 0.7);
+  margin: 0.5rem 0.5rem 0.5rem 0 ;
+  padding: 0;
+  border-radius: 1rem;
+}
+
+ul li:last-child{
+  border: none;
+}
+
+li img {
+  width: 5rem;
+  height: 5rem;
+  object-fit: cover;
+  border-radius: 2rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0.7, 0.7);
+}
+
+li div {
+  padding: 1rem
+}
+
+li input {
+  text-align: center;
+  color: rgb(82, 34, 34);
+  background-color: rgb(233, 185, 166);
+  border: none;
+  width: 1.5rem;
+  height: 1.4rem;
+  font-size: 1rem;
+  border-radius: 1rem;
+}
+
+li button {
+  background-color: seagreen;
+  border: 1px solid whitesmoke;
+  box-shadow: 0 4px 8px rgba(0, 0, 0.7, 0.7);
+  padding: 0.3rem 0.6rem;
+  border-radius: 2rem;
+  color: white;
+  margin-right: 0.5rem;
+}
+
+button:hover {
+  opacity: 0.9;
+  cursor: pointer;
+}
+
+li a {
+  color: rgb(82, 34, 34);
+  font-size: 1.2rem;
+  font-style:initial;
+}
+
+.card-currency  {
+  color: rgb(82, 34, 34);
+}
+
+.checkout {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  flex: 1 3;
+  height: 20rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0.7, 0.9);
+  border-radius: 1rem;
+  padding:  0.5rem;
+  margin: 0.5rem;
+}
+
+.checkout>div {
+  font-size: 1.1rem;
+  margin: 1rem;
+  flex: 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.foods-count {
+  background-color: seagreen;
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  border-radius: 1rem;
+  color: white;
+}
+
+.foods-count::before {
+  content: "Count: ";
+  color: white;
+}
+
+.total-price {
+  padding: 1rem;
+  background-color: seagreen;
+  border-radius: 1rem;
+  color: white;
+}
+
+.total-price::before {
+  content: 'Price: ';
+  color: white;
+  
+}
+
+.checkout a {
+  padding: 1rem;
+  color: white;
+  background-color: seagreen;
+  display: block;
+  border-radius: 1rem;
+  text-align: center;
+  justify-self: center;
+}
+
+.checkout a:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}

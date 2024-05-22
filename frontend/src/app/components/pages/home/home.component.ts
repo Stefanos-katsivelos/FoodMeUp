@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { EFood,} from '../../../shared/models/interfaces/food';
+import { EFood,} from '../../../shared/models/interfaces/Food';
 import { FoodService } from '../../../services/food.service';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';

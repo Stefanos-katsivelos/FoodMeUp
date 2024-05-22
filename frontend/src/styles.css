@@ -14,7 +14,10 @@ button {
 }
 
 body {
- 
+  background-image: url('assets/FoodMeUp2Image.jpg');
+  background-position: center center;
+  background-size: cover;
+  
   margin: 0;
 }
 

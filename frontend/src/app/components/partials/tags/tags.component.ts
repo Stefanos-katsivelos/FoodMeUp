@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import {Tag } from '../../../shared/models/interfaces/food';
+import {Tag } from '../../../shared/models/interfaces/Food';
 import { FoodService } from '../../../services/food.service';
 import { RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';

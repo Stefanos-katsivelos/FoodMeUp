@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { EFood, Food, Tag, sample_foods, sample_tags } from '../shared/models/interfaces/food';
+import { EFood, Food, Tag, sample_foods, sample_tags } from '../shared/models/interfaces/Food';
 
 
 @Injectable({

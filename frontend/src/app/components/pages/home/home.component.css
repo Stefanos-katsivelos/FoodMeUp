@@ -1,14 +1,12 @@
 ul {
-  width: 60%;
+  width: 70%;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
   list-style-type: none;
-  background-color: #f1f1f1;
-  border: 2px solid #f1f1f1; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0.7, 0.7);
   border-radius: 10px; 
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   margin-top: 0; 
 }
 
@@ -16,6 +14,11 @@ li {
   flex: 1 1 21%;
   display: flex;
   justify-content: center;
+  background-color: whitesmoke;
+  border-radius: 1rem;
+  margin-right: 2rem;
+  margin-top: 1rem;
+  
 }
 
 li a img {
@@ -27,11 +30,13 @@ li a img {
 
 li a {
   height: 15rem;
-  width: 11rem;
-  border: 1px solid whitesmoke;
+  width: 13rem;
+  background-color: white;
+  border: 2px solid  rgb(233, 185, 166);
   border-radius: 1rem;
   margin: 1rem;
   display: flex;
+  
   flex-direction: column;
   /* overflow: hidden; */
   color: seagreen;

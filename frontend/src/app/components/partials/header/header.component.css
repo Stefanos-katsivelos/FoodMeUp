@@ -23,12 +23,18 @@ a:hover {
 .container {
   display: flex;
   justify-content: space-between;
+  
 }
 
 
 a.logo {
   font-weight: bold;
   padding: 1.5rem;
+  margin: 0; 
+}
+
+nav {
+  margin: 0;
 }
 
 ul {
@@ -40,6 +46,7 @@ ul {
 ul a{
   padding: 1.5rem;
   display: inline-block;
+  
 }
 
 a span {
