@@ -1,0 +1,15 @@
+<div class="side-menu" [class.open]="isMenuOpen">
+  <ul>
+    <li><a routerLink="/profile">Profile</a></li>
+    <li><a routerLink="/orders">Orders</a></li>
+    <li>
+      <a routerLink="/cart-page">
+        <fa-icon [icon]="faShoppingCart"></fa-icon>
+        Basket
+        <span *ngIf="cartQuantity">{{ cartQuantity }}</span>
+      </a>
+    </li>
+    <li><a routerLink="/login">Login</a></li>
+    <li><a>Logout</a></li>
+  </ul>
+</div>

@@ -2,6 +2,11 @@
   title="Food Cart Page"
   margin="1.5rem 0 0 2.5rem"></app-title>
 
+<app-not-found [visible]="!cart || !cart.items.length"
+  notFoundMessage="Food Cart Page Is Empty!"
+  resetLinkText="Go to Food Page"
+>
+</app-not-found>
 <div class="container">
   <ul>
     <li *ngFor="let cartItem of cart.items">
@@ -15,7 +20,7 @@
           {{ cartItem.food.name }}
         </a>
       </div>
-      <div >
+      <div>
         <button (click)="decrementQuantity(cartItem)">-</button>
         <input
           type="text"
@@ -26,22 +31,17 @@
       <div class="card-currency">
         {{ cartItem.price | currency: "EUR" }}
       </div>
-      <button
-        class="remove-button"
-        (click)="removeFromCart(cartItem)">
-        Remove
-      </button>
-     
+      <fa-icon [icon]="faTrash"  class="remove-button"
+      (click)="removeFromCart(cartItem)"></fa-icon>
     </li>
   </ul>
 
   <div class="checkout">
     <div>
-      <div class="foods-count">{{cart.totalCount}}</div>
-      <div class="total-price">{{cart.totalPrice | currency: "EUR"}}</div>
+      <div class="foods-count">{{ cart.totalCount }}</div>
+      <div class="total-price">{{ cart.totalPrice | currency: "EUR" }}</div>
     </div>
 
-    <a  routerLink="/checkout">Procceed to Checkout</a>
+    <a routerLink="/checkout">Procceed to Checkout</a>
   </div>
 </div>
-

@@ -5,16 +5,28 @@ import { CartItem } from '../../../shared/models/CartItem';
 import { TitleComponent } from '../../partials/title/title.component';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
+import { NotFoundComponent } from '../../partials/not-found/not-found.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { faMinus, faPlus, faTrash } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-cart-page',
   standalone: true,
-  imports: [TitleComponent, CommonModule, RouterLink],
+  imports: [
+    TitleComponent,
+    CommonModule,
+    RouterLink,
+    NotFoundComponent,
+    FontAwesomeModule,
+  ],
   templateUrl: './cart-page.component.html',
   styleUrl: './cart-page.component.css',
 })
 export class CartPageComponent {
   cart!: Cart;
+  faTrash = faTrash;
+  faPlus = faPlus;
+  faMinus = faMinus;
 
   constructor(private cartService: CartService) {
     this.cartService.getCartObservable().subscribe((cart) => {

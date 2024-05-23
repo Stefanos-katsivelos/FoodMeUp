@@ -1,23 +1,43 @@
 <header>
   <div class="container">
-    <a routerLink="/" class="logo">FoodMe Up!</a>
+    <a
+      routerLink="/"
+      class="logo">
+      FoodMe Up!
+    </a>
     <nav>
       <ul>
         <li>
-          <a routerLink="/login">Login</a>
+          <a routerLink="/login">
+            <fa-icon [icon]="faUser"></fa-icon>
+          </a>
         </li>
         <li class="menu-container">
-          <a routerLink="/dashboard"> John</a>
+          <a routerLink="/dashboard">John</a>
           <div class="menu">
             <a routerLink="/profile">Profile</a>
             <a routerLink="/orders">Orders</a>
-            <a >Logout</a>
+            <a>Logout</a>
           </div>
         </li>
         <li>
           <a routerLink="/cart-page">
-            Cart <span> 3 </span>
+            <fa-icon [icon]="faShoppingCart"></fa-icon>
+            Basket
+            <span *ngIf="cartQuantity">{{ cartQuantity }}</span>
           </a>
+        </li>
+        <li>
+          <div
+            class="hamburger"
+            (click)="toggleMenu()">
+            <a>
+              <fa-icon [icon]="faBars"></fa-icon>
+            </a>
+            <app-hamburger-menu
+              [cartQuantity]="cartQuantity"
+              [isMenuOpen]="isMenuOpen"></app-hamburger-menu>
+          </div>
         </li>
       </ul>
     </nav>

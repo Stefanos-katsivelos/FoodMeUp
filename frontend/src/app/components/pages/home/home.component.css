@@ -11,10 +11,10 @@ ul {
 }
 
 li {
-  flex: 1 1 21%;
+  flex: 1 2 21%;
   display: flex;
   justify-content: center;
-  background-color: whitesmoke;
+  background-color: lightgray;
   border-radius: 1rem;
   margin-right: 2rem;
   margin-top: 1rem;
@@ -72,4 +72,70 @@ li a:hover {
  width: 70%;
  padding-top: 1rem ;
 }
+
+
+
+@media (max-width: 768px) {
+  ul {
+    width: 100%; /* Adjust width to fit smaller screens */
+  }
+
+  li {
+    flex: 1 2 21%; /* Reduce flex-basis to fit more items in the viewport */
+    margin-right: 1rem;
+    margin-top: 0.5rem;
+  }
+
+  li a {
+    height: 16rem; /* Reduce height of the cards */
+    width: 12rem;  /* Reduce width of the cards */
+    margin: 0.5rem;
+  }
+
+  li a img {
+    height: 50%; /* Adjust height of the images */
+  }
+
+  .content {
+    font-size: 0.7rem; /* Adjust font size */
+  }
+
+  .stars {
+    font-size: 0.7rem; /* Adjust font size */
+    width: 100%; /* Adjust width */
+  }
+}
+
+
+@media (max-width: 480px) {
+  ul {
+    width: 100%; /* Adjust width to fit smaller screens */
+  }
+
+  li {
+    flex: 1 2 21%; /* Further reduce flex-basis to fit more items in the viewport */
+    margin-right: 0.5rem;
+    margin-top: 0.5rem;
+  }
+
+  li a {
+    height: 14rem; /* Further reduce height of the cards */
+    width: 10rem;  /* Further reduce width of the cards */
+    margin: 0.5rem;
+  }
+
+  li a img {
+    height: 45%; /* Further adjust height of the images */
+  }
+
+  .content {
+    font-size: 0.6rem; /* Further adjust font size */
+  }
+
+  .stars {
+    font-size: 0.6rem; /* Further adjust font size */
+    width: 100%; /* Adjust width */
+  }
+}
+
 
