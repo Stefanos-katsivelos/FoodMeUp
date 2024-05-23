@@ -6,19 +6,19 @@
   align-items: flex-start;
   margin: 1.5rem;
   margin-top: 1rem;
+  
 }
 
 ul {
   display: flex;
   flex-direction: column;
+  border-bottom: 2px solid lightgrey;
   flex: 3 0;
   justify-content: space-evenly;
   list-style: none;
-  
   margin: 0.5rem;
   padding: 0.5rem;
   border-radius: 1rem;
-  
 }
 
 ul li {
@@ -93,13 +93,13 @@ li a {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  flex: 1 3;
+  flex: 1 2;
   height: 20rem;
   background-color: lightgray;
   box-shadow: 0 4px 8px rgba(0, 0, 0.7, 0.9);
   border-radius: 1rem;
-  padding:  0.5rem;
-  margin: 0.5rem;
+  padding:  1rem;
+  margin: 1rem;
 }
 
 .checkout>div {
@@ -118,6 +118,7 @@ li a {
   padding: 1rem;
   border-radius: 1rem;
   color: white;
+  font-weight: 100;
 }
 
 .foods-count::before {
@@ -130,6 +131,7 @@ li a {
   background-color: seagreen;
   border-radius: 1rem;
   color: white;
+  font-weight: 100;
 }
 
 .total-price::before {
@@ -139,7 +141,7 @@ li a {
 }
 
 .checkout a {
-  padding: 1rem;
+  padding: 2rem;
   color: white;
   background-color: seagreen;
   display: block;

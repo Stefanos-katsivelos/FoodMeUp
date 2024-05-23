@@ -107,35 +107,4 @@ li a:hover {
 }
 
 
-@media (max-width: 480px) {
-  ul {
-    width: 100%; /* Adjust width to fit smaller screens */
-  }
-
-  li {
-    flex: 1 2 21%; /* Further reduce flex-basis to fit more items in the viewport */
-    margin-right: 0.5rem;
-    margin-top: 0.5rem;
-  }
-
-  li a {
-    height: 14rem; /* Further reduce height of the cards */
-    width: 10rem;  /* Further reduce width of the cards */
-    margin: 0.5rem;
-  }
-
-  li a img {
-    height: 45%; /* Further adjust height of the images */
-  }
-
-  .content {
-    font-size: 0.6rem; /* Further adjust font size */
-  }
-
-  .stars {
-    font-size: 0.6rem; /* Further adjust font size */
-    width: 100%; /* Adjust width */
-  }
-}
-
 

@@ -9,6 +9,7 @@ import { CommonModule } from '@angular/common';
 import { faClock } from '@fortawesome/free-solid-svg-icons';
 import { SearchComponent } from '../../partials/search/search.component';
 import { TagsComponent } from '../../partials/tags/tags.component';
+import { NotFoundComponent } from '../../partials/not-found/not-found.component';
 
 
 
@@ -22,7 +23,8 @@ import { TagsComponent } from '../../partials/tags/tags.component';
     StarRatingComponent,
     CommonModule,
     SearchComponent,
-    TagsComponent
+    TagsComponent,
+    NotFoundComponent
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
