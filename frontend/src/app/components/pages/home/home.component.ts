@@ -1,5 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { EFood,} from '../../../shared/models/interfaces/Food';
+import { Component, } from '@angular/core';
 import { FoodService } from '../../../services/food.service';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -10,7 +9,9 @@ import { faClock } from '@fortawesome/free-solid-svg-icons';
 import { SearchComponent } from '../../partials/search/search.component';
 import { TagsComponent } from '../../partials/tags/tags.component';
 import { NotFoundComponent } from '../../partials/not-found/not-found.component';
-
+import { Observable } from 'rxjs';
+import { HttpClientModule } from '@angular/common/http';
+import { Food } from '../../../shared/models/Food';
 
 
 @Component({
@@ -24,25 +25,33 @@ import { NotFoundComponent } from '../../partials/not-found/not-found.component'
     CommonModule,
     SearchComponent,
     TagsComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    HttpClientModule
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
 })
-export class HomeComponent  {
+export class HomeComponent {
   faClock = faClock;
 
-  foods: EFood[] = [];
-  constructor(private foodService: FoodService, activatedRoute:ActivatedRoute) {
+  foods: Food[] = [];
+  constructor(
+    private foodService: FoodService,
+    activatedRoute: ActivatedRoute,
+  ) {
+    let foodsObservalbe: Observable<Food[]>;
     activatedRoute.params.subscribe((params) => {
-      if(params.searchTerm)
-        this.foods = this.foodService.getAllFoodsBySearchTerm(params.searchTerm);
-      else if(params.tag)
-        this.foods = this.foodService.getAllFoodsByTags(params.tag);
-      else
-      this.foods = foodService.getAll();
-    })
-    
-  }
+      if (params.searchTerm)
+        foodsObservalbe = this.foodService.getAllFoodsBySearchTerm(
+          params.searchTerm,
+        );
+      else if (params.tag)
+        foodsObservalbe = this.foodService.getAllFoodsByTags(params.tag);
+      else foodsObservalbe = foodService.getAll();
 
+      foodsObservalbe.subscribe((serverFoods) => {
+        this.foods = serverFoods;
+      })
+    })
+  }
 }

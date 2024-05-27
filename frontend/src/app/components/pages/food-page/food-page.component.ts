@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Food } from '../../../shared/models/interfaces/Food';
+
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { FoodService } from '../../../services/food.service';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -8,6 +8,8 @@ import { StarRatingComponent } from '../../partials/star-rating/star-rating.comp
 import { CommonModule } from '@angular/common';
 import { CartService } from '../../../services/cart.service';
 import { NotFoundComponent } from '../../partials/not-found/not-found.component';
+import { HttpClientModule } from '@angular/common/http';
+import { Food } from '../../../shared/models/Food';
 
 @Component({
   selector: 'app-food-page',
@@ -18,6 +20,7 @@ import { NotFoundComponent } from '../../partials/not-found/not-found.component'
     RouterLink,
     CommonModule,
     NotFoundComponent,
+    HttpClientModule
   ],
   templateUrl: './food-page.component.html',
   styleUrl: './food-page.component.css',
@@ -29,12 +32,14 @@ export class FoodPageComponent {
 
   constructor(
     activatedRoute: ActivatedRoute,
-    foodService: FoodService,
+    private foodService: FoodService,
     private cartService: CartService,
     private router: Router,
   ) {
     activatedRoute.params.subscribe((params) => {
-      if (params.id) this.food = foodService.getFoodById(params.id);
+      if (params.id)
+      foodService.getFoodById(params.id).subscribe(serverFood => {
+    this.food = serverFood});
     });
   }
 

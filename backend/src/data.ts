@@ -24,7 +24,7 @@ export interface EFood {
 }
 
 
-export const sample_foods: EFood[] = [
+export const sample_foods: any[] = [
   {
     id: '1',
     name: 'Pizza Margherita',
@@ -164,7 +164,7 @@ export interface Tag {
   count: number;
 }
 
-export const sample_tags: Tag[] = [
+export const sample_tags: any[] = [
   { name: 'All', count: 6 },
   { name: 'Seafood', count: 4 },
   { name: 'Pizza', count: 2 },

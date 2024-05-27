@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",                        // Specify ECMAScript target version
+    "module": "CommonJS",                      // Specify module code generation
+    "strict": true,                            // Enable all strict type-checking options
+    "outDir": "./dist",                        // Redirect output structure to the directory
+    "rootDir": "./src",                        // Specify the root directory of input files
+    "esModuleInterop": true,                   // Enables emit interoperability between CommonJS and ES Modules via __importStar and __importDefault
+    "forceConsistentCasingInFileNames": true,  // Disallow inconsistently-cased references to the same file
+    "moduleResolution": "node",                // Specify module resolution strategy
+    "resolveJsonModule": true,                 // Include modules imported with .json extension
+    "skipLibCheck": true,                      // Skip type checking of declaration files
+    "strictPropertyInitialization": false,     // Disable strict checking of property initialization in classes
+    "experimentalDecorators": true,            // Enable experimental support for decorators
+    "emitDecoratorMetadata": true,             // Enable emitting type metadata for decorators
+    "types": ["node"],                         // Specifies type definitions to be included in compilation
+    "lib": ["ES2020"],                         // Specify library files to be included in the compilation
+    "typeRoots": ["./node_modules/@types"]     // List of folders to include type definitions from
+  },
+  "include": ["src/**/*"],                     // Specify which files to include
+   
+}

@@ -2,7 +2,6 @@ import { Component, Input, OnInit,  } from '@angular/core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faStar, faStarHalfAlt } from '@fortawesome/free-solid-svg-icons';
 import { CommonModule } from '@angular/common';
-import { EFood } from '../../../shared/models/interfaces/Food';
 
 @Component({
   selector: 'app-star-rating',

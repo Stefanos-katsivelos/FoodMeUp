@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
-
-import {Tag } from '../../../shared/models/interfaces/Food';
 import { FoodService } from '../../../services/food.service';
 import { RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { Tag } from '../../../shared/models/Tag';
 
 @Component({
   selector: 'app-tags',
@@ -13,8 +12,10 @@ import { CommonModule } from '@angular/common';
   styleUrl: './tags.component.css',
 })
 export class TagsComponent {
-  tags: Tag[];
+  tags: Tag[] = [];
   constructor(foodService: FoodService) {
-    this.tags = foodService.getAllTags();
+     foodService.getAllTags().subscribe(serverTags => {
+       this.tags = serverTags;
+    });
   }
 }
