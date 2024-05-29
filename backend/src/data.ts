@@ -179,4 +179,23 @@ export const sample_tags: any[] = [
 ];
 
 
+export const sample_users: any[] = [
+  {
+    name: "Stefanos Katsivelos",
+    email: "stef.katsivelos@gmail.com",
+    password: "12345",
+    address: "Athens On",
+    isAdmin: true,
+  },
+
+  {
+    name: "Koumparas Magazi",
+    email: "koumparas@gmail.com",
+    password: "12345",
+    address: "Nea Erithraia",
+    isAdmin: false
+  },
+]
+
+
 
