@@ -26,15 +26,25 @@
 }
 
 .side-menu ul li a {
-  color: #2a0425;
+  color: whitesmoke;
   text-decoration: none;
   display: block;
   padding: 1rem;
   background-color: rgba(43, 123, 43, 0.903);
   border-radius: 5px;
+  letter-spacing: 0.6px;
 }
 
 .side-menu ul li a:hover {
   background-color:#ac49a0;
   color: white;
+  cursor: pointer;
 }
+
+.side-menu ul li a:active {
+  background-color: #8e3b81;
+  color: white;
+}
+
+
+

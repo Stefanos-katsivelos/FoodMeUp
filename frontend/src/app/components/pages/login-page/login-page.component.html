@@ -1,44 +1,59 @@
-<div class="container">
-  <div class="details">
-    <app-title title="Login"></app-title>
-
-    <form
+<div class="parent">
+<div class="container" [ngClass]="isSignDivVisiable ? 'active': ' ' " id="container">
+  <div class="form-container sign-up" >
+      <form>
+          <h1>Create Account</h1>
+          <div class="social-icons">
+              <a href="#" class="icon"><fa-icon [icon]="faGooglePlusG"></fa-icon></a>
+              <a href="#" class="icon"><fa-icon [icon]="faFacebookF"></fa-icon></a>
+              <a href="#" class="icon"><fa-icon [icon]="faLinkedinIn"></fa-icon></a>
+              <a href="#" class="icon"><fa-icon [icon]="faGithub"></fa-icon></a>
+          </div>
+          <span>or use your email for registeration</span>
+          <input type="text" placeholder="Name">
+          <input type="email" placeholder="Email">
+          <input type="password" placeholder="Password">
+          <button>Sign Up</button>
+      </form>
+  </div>
+  <div class="form-container sign-in">
+      <form  
       [formGroup]="loginForm"
       (ngSubmit)="submit()">
-      <div class="input-container">
-        <label>Email</label>
-        <div>
-          <input
-            type="email"
-            placeholder="Email"
-            formControlName="email" />
-        </div>
-        <div
+          <h1>Sign In</h1>
+          <div class="social-icons">
+              <a href="#" class="icon"><fa-icon [icon]="faGooglePlusG"></fa-icon></a>
+              <a href="#" class="icon"><fa-icon [icon]="faFacebookF"></fa-icon></a>
+              <a href="#" class="icon"><fa-icon [icon]="faLinkedinIn"></fa-icon></a>
+              <a href="#" class="icon"><fa-icon [icon]="faGithub"></fa-icon></a>
+          </div>
+          <span>or use your email password</span>
+          <input type="email" placeholder="Email" formControlName="email" >
+          <input type="password" placeholder="Password" formControlName="password">
+          <div
           class="error-list"
           *ngIf="fc.email.errors && isSubmitted">
           <div *ngIf="fc.email.errors.required">Field Is Required</div>
           <div *ngIf="fc.email.errors.email">Email is not correct</div>
         </div>
+          <a href="#">→ Forget Your Password? ←</a>
+          <button>Sign In</button>
+      </form>
+  </div>
+  <div class="toggle-container">
+      <div class="toggle">
+          <div class="toggle-panel toggle-left">
+              <h1>Welcome Back!</h1>
+              <p>Enter your personal details to use all of site features</p>
+              <button class="hidden" id="login" (click)="isSignDivVisiable = false">Sign In</button>
+          </div>
+          <div class="toggle-panel toggle-right">
+              <h1>Hello, Friend!</h1>
+              <p>Register with your personal details to use all of site features</p>
+              <button class="hidden" id="register" type="submit" (click)="isSignDivVisiable = true">Sign Up</button>
+          </div>
       </div>
-
-      <div class="input-container">
-        <label>Password</label>
-        <div>
-          <input
-            type="password"
-            placeholder="Password"
-            formControlName="password" />
-        </div>
-        <div
-          class="error-list"
-          *ngIf="fc.password.errors && isSubmitted">
-          <div *ngIf="fc.password.errors.required">Field Is Required</div>
-        </div>
-      </div>
-
-      <div class="button">
-        <button type="submit">Login</button>
-      </div>
-    </form>
   </div>
 </div>
+</div>
+

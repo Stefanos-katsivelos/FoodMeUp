@@ -7,17 +7,17 @@
     </a>
     <nav>
       <ul>
-        <li>
+        <li *ngIf="!isAuth">
           <a routerLink="/login">
             <fa-icon [icon]="faUser"></fa-icon>
           </a>
         </li>
-        <li class="menu-container">
-          <a routerLink="/dashboard">John</a>
+        <li *ngIf="isAuth" class="menu-container">
+          <a routerLink="/dashboard">{{user.name}}</a>
           <div class="menu">
             <a routerLink="/profile">Profile</a>
-            <a routerLink="/orders">Orders</a>
-            <a>Logout</a>
+            <a routerLink="/orders" >Orders</a>
+            <a (click)="logout()">Logout</a>
           </div>
         </li>
         <li>
@@ -32,11 +32,14 @@
             class="hamburger"
             (click)="toggleMenu()">
             <a>
-              <fa-icon [icon]="faBars"></fa-icon>
+              <fa-icon class="burger-icon" [icon]="faBars"></fa-icon>
             </a>
             <app-hamburger-menu
               [cartQuantity]="cartQuantity"
-              [isMenuOpen]="isMenuOpen"></app-hamburger-menu>
+              [isMenuOpen]="isMenuOpen"
+              [user]="user"
+              >
+            </app-hamburger-menu>
           </div>
         </li>
       </ul>

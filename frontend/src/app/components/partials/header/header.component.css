@@ -12,14 +12,23 @@
 
   a {
     color: white;
+    letter-spacing: 0.5px;
   }
 
   a:hover {
-    background-color: #ac49a0;
+    background-color: #b55dab;
+    border-radius: 1rem;
     color: white;
     cursor: pointer;
-
+    
   }
+
+  a:active {
+    background-color: #8e3b81;
+    color: white;
+  }
+
+
 
   .container {
     display: flex;
@@ -62,12 +71,15 @@
 
   .menu-container {
     position: relative;
+    
   }
 
   .menu {
     position: absolute;
+    border: 2px solid white;
+    border-radius: 1rem;
     z-index: 1;
-    background: lightblue;
+    background:  rgba(43, 123, 43, 0.903);
     display: none;
 
   }
@@ -80,6 +92,11 @@
     width: 100%;
     min-width: 10rem;
   }
+  .hamburger a {
+    font-size: 1.2rem;
+    line-height: 0;
+  }
+  
 
   @media (max-width: 768px) {
     .login,
