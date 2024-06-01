@@ -1,10 +1,19 @@
+import dotenv from 'dotenv';
 import express from "express";
 import cors from "cors";
-import { sample_foods, sample_tags, sample_users } from "./data";
-import jwt from "jsonwebtoken";
+import userRoutes from "./routers/user.routes";
+import foodRoutes from "./routers/food.routes";
+import mongoose from 'mongoose';
 
 const app = express();
 app.use(express.json());
+dotenv.config();
+
+mongoose.connect(process.env.MONGODB_URI!)
+.then(
+    () => { console.log("Connection to mongoDb established") },
+    err => { console.log("Failed to connect to mongodb", err) }
+) 
 
 app.use(
   cors({
@@ -13,56 +22,9 @@ app.use(
   })
 );
 
-app.get("/api/foods", (req, res) => {
-  res.send(sample_foods);
-});
+app.use("/api/foods", foodRoutes)
+app.use("/api/users", userRoutes)
 
-app.get("/api/foods/search/:searchTerm", (req, res) => {
-  const searchTerm = req.params.searchTerm.toLowerCase();
-  const foods = sample_foods.filter((food) =>
-    food.name.toLowerCase().includes(searchTerm)
-  );
-  res.send(foods);
-});
-
-app.get("/api/foods/tags", (req, res) => {
-  res.send(sample_tags);
-});
-
-app.get("/api/foods/tag/:tagName", (req, res) => {
-  const tagName = req.params.tagName;
-  const foods = sample_foods.filter((food) => food.tags?.includes(tagName));
-  res.send(foods);
-});
-
-app.get("/api/foods/:foodId", (req, res) => {
-  const foodId = req.params.foodId;
-  const food = sample_foods.find((food) => food.id == foodId);
-  res.send(food);
-});
-
-app.post("/api/users/login", (req, res) => {
-  const { email, password } = req.body;
-  const user = sample_users.find(
-    (user) => user.email === email && user.password === password
-  );
-  if (user){
-    res.send(generateTokenResponse(user));
-  }else {
-    res.status(400).send("User name or password is not valid!");
-  }
-})
-
-const generateTokenResponse = (user: any) => {
-  const token = jwt.sign({
-    email:user.email, isAdmin:user.isAdmin
-  }, "SomeRandomText", {
-    expiresIn: "30d"
-  });
-
-  user.token = token;
-  return user;
-}
 
 const port = 5000;
 app.listen(port, () => {
