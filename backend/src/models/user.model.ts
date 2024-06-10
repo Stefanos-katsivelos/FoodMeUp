@@ -15,8 +15,8 @@ export const UserSchema = new Schema<User>(
     name: { type: String, required: true },
     email: { type: String, required: true, unique: true },
     password: { type: String, required: true },
-    address: { type: String, required: true },
-    token: {type: String, required: true},
+    address: {type: String, required: true},
+    token: {type: String, default: ''},
     isAdmin: { type: Boolean, required: true },
   },
   {
@@ -30,4 +30,4 @@ export const UserSchema = new Schema<User>(
   }
 );
 
-export const UserModel = model<User>('user', UserSchema)
+export const UserModel = model<User>('User', UserSchema)

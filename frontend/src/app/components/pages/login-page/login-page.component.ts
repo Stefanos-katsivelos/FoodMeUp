@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {
-  FormBuilder,
   FormControl,
   FormGroup,
+  ValidatorFn,
   Validators,
 } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -12,6 +12,8 @@ import { UserService } from '../../../services/user.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { faFacebookF, faGithub, faGooglePlusG, faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { IUserRegister } from '../../../shared/interfaces/IUserRegister';
+
 
 
 @Component({
@@ -23,6 +25,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 })
 export class LoginPageComponent implements OnInit {
   loginForm!: FormGroup;
+  registerForm!: FormGroup;
   isSignDivVisiable = false;
   isSubmitted = false;
   returnUrl = '';
@@ -33,18 +36,25 @@ export class LoginPageComponent implements OnInit {
   
 
   constructor(
-    private formBuilder: FormBuilder,
     private userService: UserService,
     private activatedRoute: ActivatedRoute,
     private router: Router
     
   ) {}
 
-  ngOnInit(): void {
-    this.loginForm = this.formBuilder.group({
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', Validators.required],
+   ngOnInit(): void {
+    this.registerForm = new FormGroup({
+      name: new FormControl('', Validators.required),
+      email: new FormControl('', [Validators.required, Validators.email]),
+      password: new FormControl('', [Validators.required, Validators.minLength(5)]),
+      address: new FormControl('', Validators.required)
     });
+
+    this.loginForm = new FormGroup({
+      email: new FormControl('', [Validators.required, Validators.email]),
+      password: new FormControl('', Validators.required),
+    });
+    console.log('ngOnInit() method called');
 
     this.returnUrl = this.activatedRoute.snapshot.queryParams.returnUrl;
   }
@@ -53,7 +63,7 @@ export class LoginPageComponent implements OnInit {
     return this.loginForm.controls;
   }
 
-  submit() {
+  submitLogin() {
     this.isSubmitted = true;
     if (this.loginForm.invalid) return;
 
@@ -61,5 +71,32 @@ export class LoginPageComponent implements OnInit {
       password: this.fc.password.value}).subscribe(() => {
         this.router.navigateByUrl(this.returnUrl);
       });
+  }
+
+  get fcr() {
+    return this.registerForm.controls;
+  }
+
+  submitRegistration() {
+    this.isSubmitted = true;
+    if (this.registerForm.invalid){
+      console.log('Registration form is invalid');
+      return;
+    } 
+  
+    const fv = this.registerForm.value;
+    const user: IUserRegister = {
+      name: fv.name,
+      email: fv.email,
+      password: fv.password, 
+      address: fv.address
+    };
+  
+    this.userService.register(user).subscribe(() => {
+      console.log('Registration successful');
+      this.router.navigateByUrl(this.returnUrl);
+    }, (error) => {
+      console.log('Error occurred during registration:', error);
+    });
   }
 }

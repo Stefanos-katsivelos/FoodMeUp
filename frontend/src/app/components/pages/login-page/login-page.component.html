@@ -1,31 +1,67 @@
 <div class="parent">
 <div class="container" [ngClass]="isSignDivVisiable ? 'active': ' ' " id="container">
   <div class="form-container sign-up" >
-      <form>
+      <form
+       [formGroup]="registerForm"
+       (ngSubmit)="submitRegistration()">
           <h1>Create Account</h1>
           <div class="social-icons">
-              <a href="#" class="icon"><fa-icon [icon]="faGooglePlusG"></fa-icon></a>
-              <a href="#" class="icon"><fa-icon [icon]="faFacebookF"></fa-icon></a>
-              <a href="#" class="icon"><fa-icon [icon]="faLinkedinIn"></fa-icon></a>
-              <a href="#" class="icon"><fa-icon [icon]="faGithub"></fa-icon></a>
+              <a class="icon"><fa-icon [icon]="faGooglePlusG"></fa-icon></a>
+              <a class="icon"><fa-icon [icon]="faFacebookF"></fa-icon></a>
+              <a class="icon"><fa-icon [icon]="faLinkedinIn"></fa-icon></a>
+              <a class="icon"><fa-icon [icon]="faGithub"></fa-icon></a>
           </div>
           <span>or use your email for registeration</span>
-          <input type="text" placeholder="Name">
-          <input type="email" placeholder="Email">
-          <input type="password" placeholder="Password">
-          <button>Sign Up</button>
+         
+            <!-- Name Field -->
+        <input type="text" placeholder="Name" formControlName="name">
+        <div class="error-list" *ngIf="fcr.name.errors && isSubmitted">
+          <div *ngIf="fcr.name.errors.required">Field is required</div>
+          <div *ngIf="fcr.name.errors.minLength">Name must be at least 5 characters long</div>
+        </div>
+
+         <!-- Email Field -->
+        <input type="email" placeholder="Email" formControlName="email">
+        <div class="error-list" *ngIf="fcr.email.errors && isSubmitted">
+          <div *ngIf="fcr.email.errors.required">Field is required</div>
+          <div *ngIf="fcr.email.errors.email">Email is not correct</div>
+        </div>
+
+          <!-- Password Field -->
+        <input type="password" placeholder="Password" formControlName="password">
+        <div class="error-list" *ngIf="fcr.password.errors && isSubmitted">
+          <div *ngIf="fcr.password.errors.required">Field is required</div>
+          <div *ngIf="fcr.password.errors.minLength">Password must be at least 5 characters long</div>
+        </div>
+
+         <!-- Confirm Password Field -->
+        <!-- <input type="password" placeholder="Confirm Password" formControlName="confirmPassword">
+        <div class="error-list" *ngIf="fcr.confirmPassword.errors && isSubmitted">
+          <div *ngIf="fcr.confirmPassword.errors.required">Field is required</div>
+          <div *ngIf="registerForm.errors?.passwordsMismatch">Passwords do not match</div>
+        </div> -->
+         
+           
+        <!-- Address Field -->
+        <input type="text" placeholder="Address" formControlName="address">
+        <div class="error-list" *ngIf="fcr.address.errors && isSubmitted">
+          <div *ngIf="fcr.address.errors.required">Field is required</div>
+          <div *ngIf="fcr.address.errors.minLength">Address must be at least 10 characters long</div>
+        </div>
+
+          <button type="submit">Sign Up</button>
       </form>
   </div>
   <div class="form-container sign-in">
       <form  
       [formGroup]="loginForm"
-      (ngSubmit)="submit()">
+      (ngSubmit)="submitLogin()">
           <h1>Sign In</h1>
           <div class="social-icons">
-              <a href="#" class="icon"><fa-icon [icon]="faGooglePlusG"></fa-icon></a>
-              <a href="#" class="icon"><fa-icon [icon]="faFacebookF"></fa-icon></a>
-              <a href="#" class="icon"><fa-icon [icon]="faLinkedinIn"></fa-icon></a>
-              <a href="#" class="icon"><fa-icon [icon]="faGithub"></fa-icon></a>
+              <a class="icon"><fa-icon [icon]="faGooglePlusG"></fa-icon></a>
+              <a class="icon"><fa-icon [icon]="faFacebookF"></fa-icon></a>
+              <a class="icon"><fa-icon [icon]="faLinkedinIn"></fa-icon></a>
+              <a class="icon"><fa-icon [icon]="faGithub"></fa-icon></a>
           </div>
           <span>or use your email password</span>
           <input type="email" placeholder="Email" formControlName="email" >
@@ -37,7 +73,7 @@
           <div *ngIf="fc.email.errors.email">Email is not correct</div>
         </div>
           <a href="#">→ Forget Your Password? ←</a>
-          <button>Sign In</button>
+          <button type="submit">Sign In</button>
       </form>
   </div>
   <div class="toggle-container">
