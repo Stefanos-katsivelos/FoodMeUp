@@ -100,3 +100,7 @@ export class LoginPageComponent implements OnInit {
     });
   }
 }
+function booleanValidator(): ValidatorFn {
+  throw new Error('Function not implemented.');
+}
+

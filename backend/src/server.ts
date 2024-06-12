@@ -14,7 +14,7 @@ app.use(express.json());
 const mongoUri = process.env.MONGO_URI;
 if (!mongoUri) {
   console.error('MONGO_URI is not defined in the environment variables');
-  process.exit(1); // Exit the application if no MongoDB URI is provided
+  process.exit(1);
 }
 
 mongoose.connect(mongoUri)
@@ -23,7 +23,7 @@ mongoose.connect(mongoUri)
   })
   .catch((err) => {
     console.error("Failed to connect to MongoDB", err);
-    // Here you can add more specific error checks if needed
+    
     if (err.name === 'MongoNetworkError') {
       console.error('Network error while trying to connect to MongoDB');
     } else if (err.message.includes('Authentication failed')) {
