@@ -20,7 +20,7 @@ export const appConfig: ApplicationConfig = {
       positionClass: 'toast-bottom-right',
       newestOnTop:false
     }),
-    provideAnimations(),
+    provideAnimations(), provideAnimationsAsync(),
     
   ],
 };

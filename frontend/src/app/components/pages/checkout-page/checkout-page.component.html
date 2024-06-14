@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="row">
+    <div class="d-flex flex-column">
+      <app-order-items-list [order]="order"></app-order-items-list>
+      <div class="d-flex flex-column">
+        <app-map></app-map>
+        <form
+          [formGroup]="checkoutForm"
+          (ngSubmit)="createOrder()">
+          <div class="form-group text-white">
+            <label for="name">Name</label>
+            <input
+              type="text"
+              id="name"
+              class="form-control"
+              formControlName="name" />
+          </div>
+          <div class="form-group text-white">
+            <label for="address">Address</label>
+            <input
+              type="text"
+              id="address"
+              class="form-control"
+              formControlName="address" />
+          </div>
+          <button
+            type="submit"
+            class="btn btn-primary w-100 mt-3"
+            [disabled]="!checkoutForm.valid">
+            Go To Payment
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

@@ -29,8 +29,8 @@ li a img {
 }
 
 li a {
-  height: 15rem;
-  width: 13rem;
+  height: 18rem;
+  width: 15rem;
   background-color: white;
   border: 2px solid  rgb(233, 185, 166);
   border-radius: 1rem;
@@ -87,7 +87,7 @@ li a:hover {
   }
 
   li a {
-    height: 16rem; /* Reduce height of the cards */
+    height: 18rem; /* Reduce height of the cards */
     width: 12rem;  /* Reduce width of the cards */
     margin: 0.5rem;
   }

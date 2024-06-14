@@ -1,6 +1,7 @@
 import { Food } from "./Food";
 
 export class CartItem {
+productName: any;
   constructor(public food: Food) {}
 
   quantity: number = 1;
