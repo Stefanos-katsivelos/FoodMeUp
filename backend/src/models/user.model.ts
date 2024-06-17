@@ -1,12 +1,11 @@
 import { Schema, model } from "mongoose";
 
 export interface User {
-  id: string;
   email: string;
   password: string;
   name: string;
   address: string;
-  token: string;
+  token?: string;
   isAdmin: boolean;
 }
 
@@ -16,7 +15,7 @@ export const UserSchema = new Schema<User>(
     email: { type: String, required: true, unique: true },
     password: { type: String, required: true },
     address: {type: String, required: true},
-    token: {type: String, default: ''},
+    token: {type: String, select: false},
     isAdmin: { type: Boolean, required: true },
   },
   {

@@ -3,7 +3,6 @@
     <div class="d-flex flex-column">
       <app-order-items-list [order]="order"></app-order-items-list>
       <div class="d-flex flex-column">
-        <app-map></app-map>
         <form
           [formGroup]="checkoutForm"
           (ngSubmit)="createOrder()">

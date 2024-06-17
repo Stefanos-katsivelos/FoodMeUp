@@ -6,6 +6,11 @@ import cors from "cors";
 import userRoutes from "./routers/user.routes";
 import foodRoutes from "./routers/food.routes";
 import mongoose from 'mongoose';
+import authMiddleware from './constants/authMiddleware';
+import orderRoutes from './routers/order.routes';
+
+
+
 
 const app = express();
 app.use(express.json());
@@ -42,6 +47,8 @@ app.use(
 
 app.use("/api/foods", foodRoutes)
 app.use("/api/users", userRoutes)
+app.use("/api/orders",authMiddleware, orderRoutes)
+
 
 
 const port = 5000;

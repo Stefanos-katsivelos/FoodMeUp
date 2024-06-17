@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { sample_foods, sample_users } from "../data";
+import { sample_users } from "../data";
 import asyncHandler from "express-async-handler";
 import jwt from "jsonwebtoken";
 import { User, UserModel } from "../models/user.model";
@@ -65,7 +65,6 @@ router.post('/register', asyncHandler(async (req, res) => {
     const encryptedPassword = await bcrypt.hash(password, 10);
 
     const newUser: User = {
-      id: '',
       name,
       email: email.toLowerCase(),
       password: encryptedPassword,
@@ -85,9 +84,10 @@ router.post('/register', asyncHandler(async (req, res) => {
 const generateTokenResponse = (user: any) => {
   const token = jwt.sign(
     {
+      _id : user.id,
       email: user.email,
       isAdmin: user.isAdmin,
-    },
+    },process.env.JWT_SECRET ||
     "SomeRandomText",
     {
       expiresIn: "30d",
