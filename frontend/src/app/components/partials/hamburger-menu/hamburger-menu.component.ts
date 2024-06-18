@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+import { faPenNib, faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import { User } from '../../../shared/models/User';
 import { UserService } from '../../../services/user.service';
 import { RouterLink } from '@angular/router';
@@ -18,6 +18,7 @@ export class HamburgerMenuComponent {
   @Input() isMenuOpen = false;
   @Input() user!: User
   faShoppingCart = faShoppingCart;
+  faPenNib = faPenNib;
 
   constructor(private userService: UserService) {
 

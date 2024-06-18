@@ -25,6 +25,13 @@
   margin: 1rem 0;
 }
 
+.side-menu ul li span {
+  margin-left: 0.4rem;
+  padding: 0.2rem 0.5rem;
+  background-color: #e89f9f;
+  border-radius: 5rem;
+}
+
 .side-menu ul li a {
   color: whitesmoke;
   text-decoration: none;

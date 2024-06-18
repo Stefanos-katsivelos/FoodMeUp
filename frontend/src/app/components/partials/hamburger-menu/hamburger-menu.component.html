@@ -3,12 +3,17 @@
      <li *ngIf="user.token"> <!-- isAuth -->
       <a>{{user.name}}</a>
     </li>
-    <li><a routerLink="/orders">Orders</a></li>
     <li>
       <a routerLink="/cart-page">
         Basket
-        <span *ngIf="cartQuantity">{{ cartQuantity }}</span>
         <fa-icon [icon]="faShoppingCart"></fa-icon>
+        <span *ngIf="cartQuantity">{{ cartQuantity }}</span>
+      </a>
+    </li>
+    <li>
+      <a routerLink="/checkout">
+        Order Items
+        <fa-icon [icon]="faPenNib"></fa-icon>
       </a>
     </li>
     <li><a routerLink="/login">Login</a></li>
