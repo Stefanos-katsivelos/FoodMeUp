@@ -6,6 +6,8 @@ import { FoodModel } from "../models/food.model";
 
 const router = Router();
 
+
+
 router.get(
   "/seed",
   asyncHandler(async (req, res) => {

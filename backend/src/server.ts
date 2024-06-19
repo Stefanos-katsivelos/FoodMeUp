@@ -8,8 +8,7 @@ import foodRoutes from "./routers/food.routes";
 import mongoose from 'mongoose';
 import authMiddleware from './middlewares/authMiddleware';
 import orderRoutes from './routers/order.routes';
-
-
+import { setupSwagger } from './swagger';
 
 
 const app = express();
@@ -48,6 +47,8 @@ app.use(
 app.use("/api/foods", foodRoutes)
 app.use("/api/users", userRoutes)
 app.use("/api/orders", authMiddleware, orderRoutes)
+
+setupSwagger(app);
 
 
 

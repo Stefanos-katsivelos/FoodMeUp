@@ -21,6 +21,38 @@ router.get(
   })
 );
 
+
+router.get(
+  "/all",
+  asyncHandler(async (req, res) => {
+    try {
+      const users = await UserModel.find();
+      res.json(users);
+    } catch (error) {
+      console.error("Error fetching users:", error);
+      res.status(500).send("An unexpected error occurred while fetching users!");
+    }
+  })
+);
+
+router.get(
+  "/:name",
+  asyncHandler(async (req, res) => {
+    const { name } = req.params;
+    try {
+      const user = await UserModel.findOne({ name: new RegExp('^' + name + '$', 'i') }); // Case-insensitive search
+      if (!user) {
+        res.status(404).send("User not found!");
+        return;
+      }
+      res.json(user);
+    } catch (error) {
+      console.error("Error fetching user by name:", error);
+      res.status(500).send("An unexpected error occurred while fetching the user!");
+    }
+  })
+);
+
 router.post("/login", asyncHandler(async (req, res) => {
   const { email, password } = req.body;
   console.log("Login attempt with email:", email);
@@ -49,6 +81,7 @@ router.post("/login", asyncHandler(async (req, res) => {
     res.status(500).send("An unexpected error occurred during login!");
   }
 }));
+
 router.post('/register', asyncHandler(async (req, res) => {
   const { name, email, password, address } = req.body;
   console.log("Registration attempt with email:", email);
